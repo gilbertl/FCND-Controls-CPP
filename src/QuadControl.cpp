@@ -77,15 +77,15 @@ VehicleCommand QuadControl::GenerateMotorCommands(float collThrustCmd, V3F momen
     
   float l = L / sqrtf(2.f);
   
-  float c_bar = collThrustCmd;
-  float p_bar = momentCmd.x / l;
-  float q_bar = momentCmd.y / l;
-  float r_bar = -momentCmd.z / kappa;
+  float cBar = collThrustCmd;
+  float pBar = momentCmd.x / l;
+  float qBar = momentCmd.y / l;
+  float rBar = -momentCmd.z / kappa;
   
-  cmd.desiredThrustsN[0] = (c_bar + p_bar + q_bar + r_bar) / 4.f;
-  cmd.desiredThrustsN[1] = (c_bar - p_bar + q_bar - r_bar) / 4.f;
-  cmd.desiredThrustsN[2] = (c_bar + p_bar - q_bar - r_bar) / 4.f;
-  cmd.desiredThrustsN[3] = (c_bar - p_bar - q_bar + r_bar) / 4.f;
+  cmd.desiredThrustsN[0] = (cBar + pBar + qBar + rBar) / 4.f;
+  cmd.desiredThrustsN[1] = (cBar - pBar + qBar - rBar) / 4.f;
+  cmd.desiredThrustsN[2] = (cBar + pBar - qBar - rBar) / 4.f;
+  cmd.desiredThrustsN[3] = (cBar - pBar - qBar + rBar) / 4.f;
   
   /////////////////////////////// END STUDENT CODE ////////////////////////////
 
