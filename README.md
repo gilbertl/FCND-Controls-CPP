@@ -1,13 +1,42 @@
-# The C++ Project Readme #
+## Scenario Results ##
 
-This is the readme for the C++ project.
+### Scenario 1 ###
 
-For easy navigation throughout this document, here is an outline:
+![Scenario 1](results/scenario1.png "Scenario 1")
 
- - [Development environment setup](#development-environment-setup)
- - [Simulator walkthrough](#simulator-walkthrough)
- - [The tasks](#the-tasks)
- - [Evaluation](#evaluation)
+To pass this scenario, the mass property in the controller params was modified to match that of the actual drone.
+
+### Scenario 2 ###
+
+![Scenario 2](results/scenario2.png "Scenario 2")
+
+Here, a body rate P controller and a roll / pitch PD controller was implemented; the code lives in BodyRateControl() and RollPitchControl() respectively.
+
+In addition, GenerateMotorCommands() was modified to calculate and set each motor's thrust.
+
+Finally, kpPQR and kpBank were tuned respectively until the drone achieved ideal results.
+
+### Scenario 3 ###
+
+![Scenario 3](results/scenario3.png "Scenario 3")
+
+For this scenario, I implemented a Lateral Position PD controller in LateralPositionControl() and an Altitude PD controller in AltitudeControl(). Parameters kpPosZ, kpVelZ, kpVelZ, and kpVelXY were tuned until each PD controller can quickly achieve the desired position / altitude.
+
+In addition, a Yaw P controller was implemented; kpYaw and kpPQR were tuned to optimize results.
+
+
+### Scenario 4 ###
+
+![Scenario 4](results/scenario4.png "Scenario 4")
+
+To address the non-idealities in this scenario, an integrative error term was added to the altitude controller to make it a PID controller. I tuned the integral control parameter KiPosZ along with other parameters to pass this scenario.
+
+
+### Scenario 5 ###
+
+![Scenario 5](results/scenario5.png "Scenario 5")
+
+A bit more fine tuning allowed the drone to pass the yellow path in scenario 5.
 
 
 ## Development Environment Setup ##
